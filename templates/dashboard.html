@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Inbox Control Center — Email Automation</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/landing.css">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+  {% if not logged_in %}
+  <div class="dashboard-connect-prompt">
+    <div class="connect-card">
+      <h1>Connect Gmail to Continue</h1>
+      <p>Link your account to access the AI Inbox Control Center.</p>
+      <a href="/auth/gmail" class="btn btn-primary btn-lg">Connect Gmail</a>
+      <a href="/" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </div>
+  {% else %}
+  <!-- Nav (same as Landing) -->
+  <nav class="landing-nav dash-nav">
+    <a href="/" class="logo">Email<span>Automation</span></a>
+    <div class="nav-links">
+      <a href="/#problem">Problem</a>
+      <a href="/#solution">Solution</a>
+      <a href="/#features">Features</a>
+      <a href="/#trust">Security</a>
+      <a href="https://mail.google.com" target="_blank" class="nav-gmail">Open Gmail ↗</a>
+      <div class="profile-avatar" title="Connected">✓</div>
+    </div>
+  </nav>
+
+  <div class="dashboard-layout">
+    <main class="dashboard-main">
+      <!-- Header -->
+      <header class="dash-header">
+        <div>
+          <h1 class="dash-headline">AI Inbox Control Center</h1>
+          <p class="dash-subtext">Monitor, approve, and automate customer conversations in real time.</p>
+        </div>
+        <div class="dash-header-right">
+          <div class="toggle-wrap">
+            <span class="toggle-label">Auto-Reply</span>
+            <label class="toggle">
+              <input type="checkbox" id="auto-reply-toggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-value" id="toggle-value">ON</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Metrics -->
+      <section class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-icon">📬</div>
+          <div class="metric-value" id="metric-processed">—</div>
+          <div class="metric-label">Emails Processed Today</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">✅</div>
+          <div class="metric-value" id="metric-replied">—</div>
+          <div class="metric-label">Auto Replies Sent</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">⏳</div>
+          <div class="metric-value" id="metric-pending">—</div>
+          <div class="metric-label">Pending Approval</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">📊</div>
+          <div class="metric-value" id="metric-accuracy">—</div>
+          <div class="metric-label">AI Accuracy %</div>
+        </div>
+      </section>
+
+      <!-- Activate Workflow -->
+      <section class="activate-section">
+        <div class="activate-card glass-card">
+          <div class="activate-content">
+            <h2>Run Workflow</h2>
+            <p>Load inbox, categorize emails, draft replies for product & support, apply labels.</p>
+          </div>
+          <button id="activate-btn" class="btn btn-primary btn-glow">Activate</button>
+          <div id="status" class="status-text"></div>
+        </div>
+      </section>
+
+      <!-- Inbox Tabs -->
+      <section class="inbox-section">
+        <div class="inbox-header">
+          <h2>Inbox</h2>
+          <div class="inbox-tabs">
+            <button class="tab active" data-tab="all">All</button>
+            <button class="tab" data-tab="enquiries">Enquiries</button>
+            <button class="tab" data-tab="complaints">Complaints</button>
+            <button class="tab" data-tab="refunds">Refunds</button>
+            <button class="tab" data-tab="pending">Pending</button>
+            <button class="tab" data-tab="replied">Auto Replied</button>
+          </div>
+        </div>
+        <div id="emails-list" class="email-cards">
+          <p class="loading-msg">Loading...</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- AI Panel Sidebar -->
+    <aside class="ai-panel" id="ai-panel">
+      <div class="ai-panel-header">
+        <h3>AI Reply</h3>
+        <button class="ai-panel-close" id="ai-panel-close">×</button>
+      </div>
+      <div class="ai-panel-body" id="ai-panel-body">
+        <p class="ai-panel-empty">Select an email to view and edit the AI-generated reply.</p>
+      </div>
+      <div class="ai-panel-detail" id="ai-panel-detail" style="display:none">
+        <div class="ai-panel-email">
+          <label>Original Email</label>
+          <div class="ai-panel-original" id="panel-original"></div>
+        </div>
+        <div class="ai-panel-reply">
+          <label>Tone</label>
+          <select class="tone-select" id="tone-select">
+            <option>Professional</option>
+            <option>Friendly</option>
+            <option>Premium Brand</option>
+            <option>Apologetic</option>
+          </select>
+          <label>Generated Reply</label>
+          <textarea class="ai-reply-textarea" id="ai-reply-textarea" rows="8"></textarea>
+          <div class="ai-panel-actions">
+            <button class="btn btn-primary btn-sm">Send</button>
+            <button class="btn btn-ghost btn-sm">Regenerate</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+  {% endif %}
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

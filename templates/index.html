@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Automation — Turn Customer Emails Into Revenue</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="landing">
+    <!-- Nav -->
+    <nav class="landing-nav">
+        <a href="/" class="logo">Email<span>Automation</span></a>
+        <div class="nav-links">
+            <a href="#problem">Problem</a>
+            <a href="#solution">Solution</a>
+            <a href="#features">Features</a>
+            <a href="#trust">Security</a>
+            {% if logged_in %}
+                <a href="/dashboard" class="btn btn-sm btn-primary">Dashboard</a>
+            {% else %}
+                <a href="/auth/gmail" class="btn btn-sm btn-primary">Connect Gmail</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-up">Turn Customer Emails Into Automated Revenue</h1>
+            <p class="hero-subtitle animate-fade-up delay-1">AI that reads, categorizes, and replies to customer emails instantly — reducing support workload by 70%.</p>
+            <div class="hero-cta animate-fade-up delay-2">
+                {% if logged_in %}
+                    <a href="/dashboard" class="btn btn-primary btn-lg">Go to Dashboard</a>
+                {% else %}
+                    <a href="/auth/gmail" class="btn btn-primary btn-lg">Connect Gmail & Start Free</a>
+                {% endif %}
+                <a href="#solution" class="btn btn-secondary btn-lg">See How It Works</a>
+            </div>
+        </div>
+        <div class="hero-visual animate-fade-up delay-2">
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div class="hero-card-body">
+                    <div class="email-row"><span class="badge product">Product enquiry</span> "Pricing for Pro plan?"</div>
+                    <div class="email-row"><span class="badge support">Support</span> "Refund request #2847"</div>
+                    <div class="email-row"><span class="badge feedback">Feedback</span> "Love the new feature!"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section id="problem" class="section problem">
+        <h2 class="section-title">The Support Bottleneck</h2>
+        <p class="section-subtitle">Every day, e-commerce and startups lose customers to slow, repetitive email handling.</p>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <span class="problem-icon">📬</span>
+                <h3>Too many repetitive product enquiries</h3>
+                <p>Same questions, copy-paste replies, endless back-and-forth.</p>
+            </div>
+            <div class="problem-card">
+                <span class="problem-icon">⏳</span>
+                <h3>Slow complaint handling</h3>
+                <p>Unhappy customers wait hours while tickets pile up.</p>
+            </div>
+            <div class="problem-card">
+                <span class="problem-icon">📉</span>
+                <h3>Lost customers due to delayed replies</h3>
+                <p>Every hour of delay increases churn and hurts revenue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="section solution">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Three simple steps to automated, intelligent email support.</p>
+        <div class="solution-steps">
+            <div class="step">
+                <span class="step-num">1</span>
+                <h3>Connect Gmail securely</h3>
+                <p>OAuth login — no passwords shared. Your inbox stays yours.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+                <span class="step-num">2</span>
+                <h3>AI categorizes emails</h3>
+                <p>Product enquiries, complaints, feedback — sorted instantly.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+                <span class="step-num">3</span>
+                <h3>Smart auto-replies or drafts</h3>
+                <p>Approval-based drafts. You review, then send. Full control.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section features">
+        <h2 class="section-title">Everything You Need</h2>
+        <p class="section-subtitle">Built for e-commerce and startups that scale.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🎯</span>
+                <h3>AI email classification</h3>
+                <p>Automatically route product enquiries, complaints, and feedback.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">✍️</span>
+                <h3>Draft generation with tone control</h3>
+                <p>Professional, empathetic replies that match your brand.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏷️</span>
+                <h3>Smart tagging & labeling</h3>
+                <p>AI Handled, Review Later — clear inbox organization.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Confidence score</h3>
+                <p>See how confident the AI is before you approve drafts.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📈</span>
+                <h3>Analytics dashboard</h3>
+                <p>Track volume, response times, and categories.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust -->
+    <section id="trust" class="section trust">
+        <h2 class="section-title">Enterprise-Grade Security</h2>
+        <p class="section-subtitle">Your data and customers deserve the best.</p>
+        <div class="trust-grid">
+            <div class="trust-item">
+                <span class="trust-icon">🔐</span>
+                <h3>Secure OAuth login</h3>
+                <p>Google's official OAuth 2.0. No plain-text passwords.</p>
+            </div>
+            <div class="trust-item">
+                <span class="trust-icon">🔒</span>
+                <h3>End-to-end encrypted tokens</h3>
+                <p>Tokens stored securely. We never see your credentials.</p>
+            </div>
+            <div class="trust-item">
+                <span class="trust-icon">⛓️</span>
+                <h3>Disconnect anytime</h3>
+                <p>Revoke access with one click. You're always in control.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section cta-final">
+        <h2 class="cta-title">Start Automating Your Inbox Today</h2>
+        <p class="cta-subtitle">Join e-commerce teams saving 70% of support time.</p>
+        <div class="cta-buttons">
+            {% if logged_in %}
+                <a href="/dashboard" class="btn btn-primary btn-lg">Open Dashboard</a>
+            {% else %}
+                <a href="/auth/gmail" class="btn btn-primary btn-lg">Connect Gmail & Start Free</a>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+        <a href="/" class="logo">Email<span>Automation</span></a>
+        <p>AI-powered email support for e-commerce and startups.</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const id = a.getAttribute('href');
+                if (id === '#') return;
+                const el = document.querySelector(id);
+                if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
+    </script>
+</body>
+</html>
