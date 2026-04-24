@@ -200,3 +200,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (emailsList) loadEmails();
 });
+
+// Helper function to infer category based on email content
